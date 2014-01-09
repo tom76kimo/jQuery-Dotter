@@ -1,3 +1,4 @@
+
 ;(function ($, window, document, undefined) {
 	
 	var pluginName = 'Dotter',
@@ -9,12 +10,17 @@
 		this._name = pluginName;
 		
 		this.init();
+		this.execute();
 	}
 	
 	Dotter.prototype.init = function(){
+	    this._originString = this.elem.text().toString();
+	};	
+    
+    Dotter.prototype.execute = function(){
 		var fontSize = this.elem.css('font-size');
 		var div = $('<span style="display: inline-block; font-size: '+fontSize+';">').appendTo('body');
-		var words = this.elem.text().toString().split('');
+		var words = this._originString.split('');
 		var dotLength = getDotLength(div);
 		var currentLength = [];
 		var i=0;
@@ -40,13 +46,16 @@
 			div.html('');
 			return length;
 		}	
-	};			
+	}	
 	
 	$.fn[pluginName] = function ( options ) {
 		var self = this;
 		return this.each(function () {
 			if (!$.data(this, 'plugin_' + pluginName)) {
 				$.data(this, 'plugin_' + pluginName, new Dotter( self, options ));
+			}
+			else{
+			    $.data(this, 'plugin_' + pluginName).execute();
 			}
 		});
 	};
