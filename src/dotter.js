@@ -15,7 +15,7 @@
 	Dotter.prototype.init = function(){
 		var fontSize = this.elem.css('font-size');
 		var div = $('<span style="display: inline-block; font-size: '+fontSize+';">').appendTo('body');
-		var words = this.elem.html().toString().split('');
+		var words = this.elem.text().toString().split('');
 		var dotLength = getDotLength(div);
 		var currentLength = [];
 		var i=0;
