@@ -5,6 +5,8 @@ This is a jQuery Plugin - 'Dotter'
 
 Whatever the given font-size and how long the content is, make content words are not out of bounds and add '...' after the words.
 
+This provide a solution of handling text overflow with ellipsis without using CSS3.
+
 Usage
 -----
 
