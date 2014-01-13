@@ -1,7 +1,7 @@
 jQuery-Dotter
 =============
 
-This is a jQuery Plugin - 'Dotter'
+This is a light jQuery Plugin - 'Dotter'
 
 Whatever the given font-size and how long the content is, make content words are not out of bounds and add '...' after the words.
 
