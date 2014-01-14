@@ -11,6 +11,7 @@
 		
 		this.init();
 		this.execute();
+		
 	}
 	
 	Dotter.prototype.init = function(){
