@@ -19,12 +19,12 @@
     
     Dotter.prototype.execute = function(){
 		var fontSize = this.elem.css('font-size');
-		var div = $('<span style="display: inline-block; font-size: '+fontSize+';">').appendTo('body');
+		var div = $('<span style="display: inline-block; white-space: nowrap; font-size: '+fontSize+'; visibility: hidden;">').appendTo('body');
 		var words = this._originString.split('');
 		var dotLength = getDotLength(div);
 		var currentLength = [];
 		var i=0;
-		while(div.width()+(dotLength*3) <= this.elem.width() && i<words.length){
+		while(div.width()+(dotLength*3) < this.elem.width() && i<words.length){
 			div.append(words[i]);
 			currentLength.push(words[i]);
 			i++;
@@ -45,7 +45,7 @@
 			var length = div.width();
 			div.html('');
 			return length;
-		}	
+		}
 	}	
 	
 	$.fn[pluginName] = function ( options ) {
