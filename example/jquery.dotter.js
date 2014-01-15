@@ -20,33 +20,35 @@
     
     Dotter.prototype.execute = function(){
 		var fontSize = this.elem.css('font-size');
-		var div = $('<span style="display: inline-block; white-space: nowrap; font-size: '+fontSize+'; visibility: hidden;">').appendTo('body');
+		var span = $('<span style="display: inline-block; white-space: nowrap; font-size: '+fontSize+'; visibility: hidden;">').appendTo('body');
 		var words = this._originString.split('');
-		var dotLength = getDotLength(div);
+		var tail = this.options.tail || '...';
+		var tailLength = getTailLength(span, tail);
 		var currentLength = [];
 		var i=0;
-		while(div.width()+(dotLength*3) < this.elem.width() && i<words.length){
-			div.append(words[i]);
+		while(span.width()+(tailLength) < this.elem.width() && i<words.length){
+			span.append(words[i]);
 			currentLength.push(words[i]);
 			i++;
 		}
-		if(div.width()+(dotLength*3) > this.elem.width()){
+		if(span.width()+(tailLength) > this.elem.width()){
 			currentLength = currentLength.splice(0, (currentLength.length)-1);
 		}
 		var theString;
 		if(i === words.length)
 			theString = currentLength.join('');
 		else
-			theString = currentLength.join('') + '...';
+			theString = currentLength.join('') + tail;
 		this.elem.html(theString);
-		div.remove();
+		span.remove();
 		return this.elem;
-		function getDotLength(div){
-			div.html('.');
-			var length = div.width();
-			div.html('');
+
+		function getTailLength(span, tail){
+			span.html(tail);
+			var length = span.width();
+			span.html('');
 			return length;
-		}
+		}	
 	}	
 	
 	$.fn[pluginName] = function ( options ) {
