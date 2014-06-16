@@ -20,27 +20,34 @@
     
     Dotter.prototype.execute = function(){
 		var fontSize = this.elem.css('font-size');
-		var span = $('<span style="display: inline-block; white-space: nowrap; font-size: '+fontSize+'; visibility: hidden;">').appendTo('body');
+		//var span = $('<span style="display: inline-block; white-space: nowrap; font-size: '+fontSize+'; ">').appendTo('body');
+		var span = this.produceVirtualElement();
 		var words = this._originString.split('');
 		var tail = this.options.tail || '...';
 		var tailLength = getTailLength(span, tail);
 		var currentLength = [];
 		var i=0;
-		while(span.width()+(tailLength) < this.elem.width() && i<words.length){
-			span.append(words[i]);
-			currentLength.push(words[i]);
-			i++;
+
+		if (this.options.multiLine) {
+
+		} else {
+			while(span.width()+(tailLength) < this.elem.width() && i<words.length){
+				span.append(words[i]);
+				currentLength.push(words[i]);
+				i++;
+			}
+			if(span.width()+(tailLength) > this.elem.width()){
+				currentLength = currentLength.splice(0, (currentLength.length)-1);
+			}
 		}
-		if(span.width()+(tailLength) > this.elem.width()){
-			currentLength = currentLength.splice(0, (currentLength.length)-1);
-		}
+		
 		var theString;
 		if(i === words.length)
 			theString = currentLength.join('');
 		else
 			theString = currentLength.join('') + tail;
 		this.elem.html(theString);
-		span.remove();
+		//span.remove();
 		return this.elem;
 
 		function getTailLength(span, tail){
@@ -49,7 +56,19 @@
 			span.html('');
 			return length;
 		}	
-	}	
+	}
+
+	Dotter.prototype.produceVirtualElement = function () {
+		var virtualElement = $('<' + this.elem[0].nodeName.toString() + '>').appendTo('body');
+		virtualElement.attr('style', this.elem.attr('style')).attr('class', this.elem.attr('class'));
+		if (this.options.multiLine) {
+			virtualElement.css({height: 'auto', display: 'inline-block'});
+		} else {
+			virtualElement.css({width: 'auto', display: 'inline-block'});
+		}
+		
+		return virtualElement;
+	};
 	
 	$.fn[pluginName] = function ( options ) {
 		var self = this;

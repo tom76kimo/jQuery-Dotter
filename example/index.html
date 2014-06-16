@@ -10,8 +10,11 @@
 <style type="text/css">
 	div {
 	        width: 180px;
+	        height: 120px;
 	        font-size: 19px;
 	        background: red;
+	        word-wrap: break-word;
+	        word-break: normal;
 	}
 </style>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -21,7 +24,7 @@
 	
     <div>123@&;/abcdefghijklmnopqrstuvwxyz</div>
     <script type="text/javascript">
-    	$('div').Dotter({tail: '...(read more)'});
+    	$('div').Dotter({tail: '...(read more)', multiLine: true});
     </script>
 	
 </body>
