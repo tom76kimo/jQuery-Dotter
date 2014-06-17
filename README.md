@@ -16,7 +16,13 @@ give the target element
 $(element).Dotter();
 ```
 
+Options
+-------
 
+|name| default value  |description |
+|----|----------------|------------|
+|tail| '...'  | the tail follow after the text  |
+| multiLine  | false  | set to true to handle with multi-lines  |
 Example
 ------
 Here is a div tag or another tag you want which wrapped a string '123@&;/abcdefghijklmnopqrstuvwxyz',
