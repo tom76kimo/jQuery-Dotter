@@ -1,0 +1,19 @@
+{
+    "name": "dotter",
+    "version": "1.0.0",
+    "title": "jQuery Dotter",
+    "author": {
+        "name": "Tom Wu",
+        "email": "tom76kimo@gmail.com",
+        "url": "https://github.com/tom76kimo/"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/tom76kimo/jQuery-Dotter/blob/master/LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">= 1.7"
+    }
+}
