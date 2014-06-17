@@ -1,0 +1,28 @@
+{
+  "name": "jQuery-Dotter",
+  "version": "1.0.3",
+  "description": "Whatever the given font-size and how long the content is, make content words are not out of bounds and add '...' or other custom tail after the words. Multi-lines supported.",
+  "homepage": "https://github.com/tom76kimo/jQuery-Dotter",
+  "authors": [
+    "tom76kimo <tom76kimo@gmail.com>"
+  ],
+  "main": "src/jquery.dotter.min.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "jquery"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+   "dependencies": {
+    "jquery": ">=1.10.2"
+   }
+}
