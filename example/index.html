@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	div {
+	        width: 180px;
+	        height: 70px;
+	        font-size: 19px;
+	        background: red;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../src/jquery.dotter.min.js"></script>
+</head>
+<body>
+	origin text
+	<p id="origin">He answered and said, Whether he be a sinner or no, I know not: one thing I know, that, whereas I was blind, now I see.</p>
+	multi: false
+    <div id="noMulti">He answered and said, Whether he be a sinner or no, I know not: one thing I know, that, whereas I was blind, now I see.</div>
+    <hr/>
+    multi: true
+    <div id="multi">He answered and said, Whether he be a sinner or no, I know not: one thing I know, that, whereas I was blind, now I see.</div>
+    
+    <script type="text/javascript">
+    	$('#noMulti').Dotter({tail: '...(read more)', multiLine: false});
+    	$('#multi').Dotter({tail: '...(read more)', multiLine: true});
+    </script>
+	
+</body>
+</html>
