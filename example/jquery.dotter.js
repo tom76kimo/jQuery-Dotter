@@ -20,23 +20,31 @@
     
     Dotter.prototype.execute = function(){
 		var fontSize = this.elem.css('font-size');
-		//var span = $('<span style="display: inline-block; white-space: nowrap; font-size: '+fontSize+'; ">').appendTo('body');
-		var span = this.produceVirtualElement();
+		var virtualElement = this.produceVirtualElement();
 		var words = this._originString.split('');
 		var tail = this.options.tail || '...';
-		var tailLength = getTailLength(span, tail);
+		var tailLength = getTailLength(virtualElement, tail);
 		var currentLength = [];
 		var i=0;
 
 		if (this.options.multiLine) {
-
-		} else {
-			while(span.width()+(tailLength) < this.elem.width() && i<words.length){
-				span.append(words[i]);
+			while (virtualElement.height() < this.elem.height() && i < words.length) {
+				virtualElement.html(virtualElement.text().replace(tail, ''));
+				virtualElement.append(words[i] + tail);
 				currentLength.push(words[i]);
 				i++;
 			}
-			if(span.width()+(tailLength) > this.elem.width()){
+			
+			if(virtualElement.height() > this.elem.height()){
+				currentLength = currentLength.splice(0, (currentLength.length)-1);
+			}
+		} else {
+			while(virtualElement.width()+(tailLength) < this.elem.width() && i<words.length){
+				virtualElement.append(words[i]);
+				currentLength.push(words[i]);
+				i++;
+			}
+			if(virtualElement.width()+(tailLength) > this.elem.width()){
 				currentLength = currentLength.splice(0, (currentLength.length)-1);
 			}
 		}
@@ -47,13 +55,13 @@
 		else
 			theString = currentLength.join('') + tail;
 		this.elem.html(theString);
-		//span.remove();
+		virtualElement.remove();
 		return this.elem;
 
-		function getTailLength(span, tail){
-			span.html(tail);
-			var length = span.width();
-			span.html('');
+		function getTailLength(virtualElement, tail){
+			virtualElement.html(tail);
+			var length = virtualElement.width();
+			virtualElement.html('');
 			return length;
 		}	
 	}
