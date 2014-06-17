@@ -15,5 +15,8 @@
     ],
     "dependencies": {
         "jquery": ">= 1.7"
-    }
+    },
+    "keywords": ["jquery", "ellipsis", "dotter"],
+    "download": "https://github.com/tom76kimo/jQuery-Dotter/archive/1.0.0.zip",
+    "description": "Whatever the given font-size and how long the content is, make content words are not out of bounds and add '...' or other custom tail after the words. Multi-lines supported."
 }
