@@ -50,7 +50,11 @@ result will be like this:
 
 ![](https://raw.github.com/tom76kimo/jQuery-Dotter/master/wiki/images/2.jpg)
 
+### With adding options
+```{multiLine: true, tail: '...(read more)'}```
 
+Will be like this(this example changed the text, don't mind.)
+![](https://raw.github.com/tom76kimo/jQuery-Dotter/master/wiki/images/3.jpg)
 
 License
 -------
