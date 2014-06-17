@@ -7,6 +7,11 @@ Whatever the given font-size and how long the content is, make content words are
 
 This provide a solution of handling text overflow with ellipsis without using CSS3.
 
+Install
+-------
+
+``` bower install jquery-dotter ```
+
 Usage
 -----
 
