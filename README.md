@@ -21,6 +21,12 @@ give the target element
 $(element).Dotter();
 ```
 
+Or with options
+
+```JavaScript
+$(element).Dotter({tail: '...(read more)', multiLine: true});
+```
+
 Options
 -------
 
